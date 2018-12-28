@@ -1,0 +1,32 @@
+<% include header %>
+           
+        <form action="/" class="ui form" method="post">
+            <div class="field">
+                <label for="message"><h3>Postez un message </h3></label>
+                <textarea name="message" id="message"></textarea> <br><br>
+                <button type="submit" class="ui blue labeled submit icon button">
+                    <i class="icon edit"></i> Envoyer
+                </button>
+            </div>
+        </form>
+
+        <div class="ui comments">
+            <h3 class="ui dividing header">Les commentaires postés:</h3>
+            <% for (message of messages) { %>
+                <div class="comment">
+                    <div class="content">
+                        <div class="metadata">
+                            <div class="date">
+                                <%= message.create_at.fromNow() %>
+                            </div>
+                        </div>
+                        <div class="test">
+                                <%= message.content %>
+                        </div>
+                    </div>
+                </div>
+
+                <% } %>
+        </div>
+   
+    <% include footer %>
